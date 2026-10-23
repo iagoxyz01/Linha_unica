@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Desafio da Linha Única</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== TELA INICIAL ===== -->
+<main id="home" class="scr on">
+  <div class="center">
+    <h1>Desafio da Linha Única</h1>
+    <p class="mut">Percorra todas as linhas da figura sem repetir nenhuma.</p>
+  </div>
+  <div class="panel">
+    <label for="team" class="mut">Nome da equipe</label>
+    <input id="team" maxlength="24" placeholder="Ex.: Equipe Euler" autocomplete="off">
+    <div class="row">
+      <button id="bStart">Iniciar Jogo</button>
+      <button id="bRank" class="sec">Ver Ranking</button>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Regras</h2>
+    <ul class="rules">
+      <li>Você tem 1min30s no total; o tempo não reinicia entre as fases.</li>
+      <li>Toque ou clique em um ponto e arraste pelas linhas, sem repetir nenhuma.</li>
+      <li>Você pode errar uma vez. O segundo erro encerra a partida.</li>
+      <li>Repetir uma linha ou ficar sem saída conta como erro. Mover para um ponto não conectado é ignorado.</li>
+      <li>Pontos roxos indicam onde começar, quando a figura exige um ponto de partida.</li>
+      <li>Há fases infinitas, cada vez mais difíceis.</li>
+    </ul>
+    <p class="mut">O ranking é local: fica salvo só neste navegador e dispositivo.</p>
+  </div>
+</main>
+
+<!-- ===== TELA DA PARTIDA ===== -->
+<main id="game" class="scr">
+  <div class="hud">
+    <div class="box"><span class="mut">Fase</span><b id="hPhase">1</b></div>
+    <div id="time">01:30</div>
+    <div class="box"><span class="mut">Pontuação</span><b id="hScore">0</b></div>
+  </div>
+  <div class="hud" style="margin-top:10px;grid-template-columns:1fr 1fr">
+    <div class="box"><span class="mut">Erros</span> <b id="hErr">0 de 1</b></div>
+    <div class="box"><span class="mut">Linhas</span> <b id="hLines">0/0</b></div>
+  </div>
+  <div class="bar" style="margin-top:10px"><i id="hBar"></i></div>
+  <svg id="board" viewBox="0 0 400 400" role="img" aria-label="Figura para desenhar"></svg>
+  <div class="center"><button id="bQuit" class="dng">Abandonar partida</button></div>
+</main>
+
+<!-- ===== TELA DE ENCERRAMENTO ===== -->
+<main id="end" class="scr">
+  <div class="panel center">
+    <h1 id="eTitle">Fim de jogo</h1>
+    <p id="eMsg" class="mut"></p>
+    <div class="stats" id="eStats"></div>
+    <p id="ePos" class="mut"></p>
+    <div class="row" style="justify-content:center">
+      <button id="bAgain">Jogar Novamente</button>
+      <button id="bRank2" class="sec">Ver Ranking</button>
+      <button id="bHome" class="sec">Voltar ao Início</button>
+    </div>
+  </div>
+</main>
+
+<!-- ===== RANKING ===== -->
+<main id="rank" class="scr">
+  <h1>Ranking local</h1>
+  <p class="mut">Salvo apenas neste navegador e dispositivo. Não é compartilhado entre computadores.</p>
+  <div class="panel tw"><table><thead><tr><th>Pos.</th><th>Equipe</th><th>Pontos</th><th>Fases</th><th>Erros</th><th>Data</th></tr></thead><tbody id="rBody"></tbody></table>
+    <p id="rEmpty" class="mut">Nenhuma partida registrada ainda.</p></div>
+  <div class="row"><button id="bBack" class="sec">Voltar</button><button id="bClear" class="dng">Limpar ranking</button></div>
+</main>
+
+<div id="toast" role="status"></div>
+
+<!-- Scripts clássicos (sem módulos) para funcionar também ao abrir o arquivo localmente. A ordem importa. -->
+<script src="js/config.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/graph.js"></script>
+<script src="js/generator.js"></script>
+<script src="js/score.js"></script>
+<script src="js/ranking.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/game.js"></script>
+<script src="js/input.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
